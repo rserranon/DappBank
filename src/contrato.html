@@ -1,0 +1,43 @@
+<template>
+  <require from="./currency-format"></require>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+      <div class="form-group">
+        <label>Web3 Listening</label>
+        <p class="help-block">${web3Listening}</p>
+      </div>
+      <div class="form-group">
+        <label>Web3 is Connected</label>
+        <p class="help-block">${web3IsConnected}</p>
+      </div> 
+      <div class="form-group">
+        <label>Peer count</label>
+        <p class="help-block">${peerCount}</p>
+      </div>            
+      <div class="form-group">
+        <label>Coinbase</label>
+        <p class="help-block">${coinbaseAddr}</p>
+      </div>
+      <div class="form-group">
+        <label>Coinbase Balance</label>
+        <p class="help-block">${coinbaseBalance | currencyFormat}</p>
+      </div>
+      <div class="form-group">
+        <label>Accounts:</label>
+        <select value.bind="selectedAccount" change.trigger="accountChanged(selectedAccount)">
+          <option repeat.for="account of accounts" value.bind="account">${account}</option>
+        </select> 
+      </div>    
+      <div class="form-group">
+        <label>Selected Account</label>
+        <p class="help-block">${selectedAccount}</p>
+      </div>
+      <div class="form-group">
+        <label>Selected Account Balance</label>
+        <p class="help-block" value.bind="selectedAccountBalance">${selectedAccountBalance}</p>
+      </div>                   
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </section>
+</template>
