@@ -11,7 +11,7 @@ export class Contrato {
     this.MyContract = web3.eth.contract(this.abi);
     this.myContractInstance = this.MyContract.at('0xf0CB18262E7851c4F28CB88D8b6375ceFE4D5Dc9');
 
-    this.selectedAccount = "0x4a2dc9ab23fe7acb19d1c77411b6906ba0526673";
+    this.selectedAccount = web3.eth.coinbase;
     this.web3Listening = web3.net.listening;
     this.web3IsConnected = web3.isConnected()
     this.peerCount = web3.net.peerCount;
