@@ -3,7 +3,7 @@ import Web3 from 'ethereum/web3.js';
 
 let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-export class Contrato {
+export class Admin {
 
   constructor(){
     // Class variables
@@ -13,6 +13,8 @@ export class Contrato {
     this.myContractInstance = this.MyContract.at('0xf0CB18262E7851c4F28CB88D8b6375ceFE4D5Dc9');
     this.tokenSymbol = this.myContractInstance.symbol();
     this.tokenBalance = this.myContractInstance.balanceOf('0xDe5B00D8954AA47531b2af7ca3C3Fc2095245365');
+    this.buyPrice     = toString(web3.fromWei(this.myContractInstance.buyPrice(), 'ether'));
+    this.sellPrice    = toString(web3.fromWei(this.myContractInstance.sellPrice(), 'ether'));
   }
   
 }
