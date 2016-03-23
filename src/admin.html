@@ -1,0 +1,21 @@
+<template>
+  <require from="./currency-format"></require>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form">
+      <div class="form-group">
+        <label>Token Name</label>
+        <p class="help-block">${myContractInstance.name()}</p>
+      </div>
+      <div class="form-group">
+        <label>Token Symbol</label>
+        <p class="help-block">${myContractInstance.symbol()}</p>
+      </div>      
+      <div class="form-group">
+        <label>Balance Of</label>
+        <p class="help-block">${tokenBalance | currencyFormat}</p>                   
+      </div>      
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </section>
+</template>
