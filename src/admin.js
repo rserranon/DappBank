@@ -16,5 +16,14 @@ export class Admin {
     this.buyPrice     = toString(web3.fromWei(this.myContractInstance.buyPrice(), 'ether'));
     this.sellPrice    = toString(web3.fromWei(this.myContractInstance.sellPrice(), 'ether'));
   }
+
+  submit() {
+    // set the default accout
+    web3.eth.defaultAccount = '0x5aC2bD6885aEf2F217dFD9a364D53E2D804d9589';  // The account has to be unlocked 
+    this.myContractInstance.setPrices(this.sellPrice, this.buyPrice);
+    alert(`Pices updated!`);
+    this.buyPrice     = "";
+    this.sellPrice    = "";
+  }
   
 }
