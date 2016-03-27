@@ -1,8 +1,9 @@
 <template>
   <require from="./currency-format"></require>
+  <require from="./timeAgo-value-converter"></require>
   <section class="au-animate">
     <h2>${heading}</h2>
-    <form role="form">
+    <form role="form" submit.delegate="submit()">
       <div class="form-group">
         <label>Token Name</label>
         <p class="help-block">${myContractInstance.name()}</p>
@@ -14,7 +15,30 @@
       <div class="form-group">
         <label>Balance Of</label>
         <p class="help-block">${tokenBalance | currencyFormat}</p>                   
-      </div>      
+      </div>          <div class="form-group">
+        <label>Buy Price</label>
+        <p class="help-block">${buyPrice | currencyFormat}</p>                   
+      </div>         <div class="form-group">
+        <label>Sell Price</label>
+        <p class="help-block">${sellPrice | currencyFormat}</p>                   
+      </div>     
+      <div class="form-group">
+        <label>Set Buy Price</label>
+        <input type="number" value.bind="buyPrice" class="form-control" id="buy" placeholder="<set buy price>">
+        <label>Set Sell Price</label>
+        <input type="number" value.bind="sellPrice" class="form-control" id="sell" placeholder="<set sell price>">
+      </div>     
+      </div>         
+      <div class="form-group">
+        <label>Latest Block JSON:</label>
+        <p class="help-block">${latestBlockJSON}</p>                   
+      </div>
+      <div class="form-group">
+        <label>Latest Block</label>
+        <p >Block Number: ${latestBlock.number}</p>
+        <p >Hash: ${latestBlock.hash}</p> 
+        <p >Time: ${latestBlock.timestamp | timeAgo }</p>                   
+      </div>        
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </section>

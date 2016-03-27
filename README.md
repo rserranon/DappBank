@@ -1,3 +1,7 @@
+# Sample Aurelia and Ethereum App
+
+  Uses web3 to connect go geth
+
 # aurelia-skeleton-navigation
 
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
