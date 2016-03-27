@@ -3,8 +3,6 @@ import Web3 from 'ethereum/web3.js';
 import {inject} from 'aurelia-framework';  
 import {ApplicationState} from './applicationState';
 
-// let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
 @inject(ApplicationState)
 export class Contrato {
 

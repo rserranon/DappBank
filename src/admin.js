@@ -3,8 +3,6 @@ import Web3 from 'ethereum/web3.js';
 import {inject} from 'aurelia-framework';  
 import {ApplicationState} from './applicationState';
 
-// let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-
 @inject(ApplicationState)
 export class Admin {
 
@@ -21,7 +19,8 @@ export class Admin {
     this.latestBlock        = this.web3.eth.getBlock('latest');
     var filter = this.web3.eth.filter('latest');
     this.latestBlockJSON  = JSON.stringify(this.latestBlock);
-    
+
+    // TODO Move it to setLastBlockFiler() function
     filter.watch(function(err, hash) {
         if (err) {
           // manage error

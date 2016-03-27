@@ -9,6 +9,7 @@ export class ApplicationState {
 	else
 		// set the provider you want from Web3.providers
 		this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+	// Other configurable options
     this.configuration  = {
       	optionOne : false,
       	optionTwo : false
