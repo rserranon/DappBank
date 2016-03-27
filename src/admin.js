@@ -18,12 +18,16 @@ export class Admin {
     this.tokenBalance       = this.myContractInstance.balanceOf('0xDe5B00D8954AA47531b2af7ca3C3Fc2095245365');
     this.buyPrice           = toString(this.web3.fromWei(this.myContractInstance.buyPrice(), 'ether'));
     this.sellPrice          = toString(this.web3.fromWei(this.myContractInstance.sellPrice(), 'ether'));
+    this.latestBlock        = this.web3.eth.getBlock('latest');
     var filter = this.web3.eth.filter('latest');
+    this.latestBlockJSON  = JSON.stringify(this.latestBlock);
+    
     filter.watch(function(err, hash) {
         if (err) {
           // manage error
         }
-        this.latestBlock = JSON.stringify(this.web3.eth.getBlock(hash));
+        this.latestBlock      = this.web3.eth.getBlock(hash);
+        this.latestBlockJSON  = JSON.stringify(this.latestBlock);
     }.bind(this));
   }
 
